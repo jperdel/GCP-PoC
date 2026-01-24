@@ -28,3 +28,6 @@ Thumbs.db
 # Notebooks
 notebooks/
 .ipynb_checkpoints/
+
+# Private settings
+src/config/private_settings.py

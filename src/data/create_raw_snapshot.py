@@ -26,8 +26,6 @@ def create_raw_metadata(
         local_metadata_path = os.path.join(tmpdir, "metadata.json")
         save_metadata(metadata, local_metadata_path)
 
-        print(local_metadata_path)
-
         upload_json_to_gcs(
             bucket_name=bucket_name,
             local_path=local_metadata_path,

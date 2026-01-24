@@ -3,8 +3,6 @@ from google.cloud import storage
 from io import BytesIO
 import pandas as pd
 
-from config.settings import BUCKET_NAME, DATASETS
-
 def upload_dataframe_to_gcs(df: pd.DataFrame, bucket_name: str, destination_blob_name: str) -> None:
     """
     Sube un DataFrame de pandas a un bucket de GCS como archivo Parquet.
