@@ -26,7 +26,6 @@ def upload_dataframe_to_gcs(df: pd.DataFrame, bucket_name: str, destination_blob
 
     # Subir el contenido a GCS
     blob.upload_from_file(buffer, content_type="application/octet-stream")
-    print(f"Archivo subido correctamente a gs://{bucket_name}/{destination_blob_name}")
 
 def read_parquet_from_gcs(bucket_name: str, blob_path: str) -> pd.DataFrame:
     """
@@ -52,3 +51,26 @@ def read_parquet_from_gcs(bucket_name: str, blob_path: str) -> pd.DataFrame:
     # Leer Parquet desde memoria
     df = pd.read_parquet(buffer)
     return df
+
+def upload_json_to_gcs(bucket_name: str, local_path: str, gcs_path: str) -> None:
+    """
+    Upload a local JSON file to a Google Cloud Storage bucket.
+
+    Parameters
+    ----------
+    bucket_name : str
+        Name of the GCS bucket.
+    local_path : str
+        Path to the local JSON file.
+    gcs_path : str
+        Destination path in the bucket (e.g., "datasets/penguins/v1/metadata.json").
+    """
+    # Inicializa el cliente
+    client = storage.Client()
+    bucket = client.bucket(bucket_name)
+    
+    # Nombre del blob dentro del bucket
+    blob = bucket.blob(gcs_path)
+    
+    # Sube el fichero JSON
+    blob.upload_from_filename(local_path)

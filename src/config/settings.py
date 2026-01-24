@@ -3,6 +3,18 @@ BUCKET_NAME = "gcp-poc-jorge-ml-artifacts"
 DATASETS = {
     "penguins": {
         "raw": "datasets/penguins/raw/data.parquet",
-        "processed": "datasets/penguins/processed/data.parquet",
     }
 }
+
+METADATA = {
+    "penguins": {
+        "raw": "datasets/penguins/raw/metadata.json",
+    }
+}
+
+PENGUINS_SOURCE = "bigquery-public-data.ml_datasets.penguins"
+
+PENGUINS_QUERY = """
+SELECT *
+FROM `bigquery-public-data.ml_datasets.penguins`
+"""
