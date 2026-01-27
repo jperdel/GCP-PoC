@@ -4,7 +4,6 @@ import pandas as pd
 import tempfile
 import os
 
-
 def create_raw_metadata(
     df: pd.DataFrame,
     bucket_name: str,
@@ -15,6 +14,7 @@ def create_raw_metadata(
     metadata = generate_metadata(
         df,
         extra_metadata={
+            "stage": "raw",
             "source": source,
             "query": query,
             "format": "parquet",

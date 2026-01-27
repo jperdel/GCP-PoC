@@ -1,7 +1,10 @@
 from google.cloud import storage
 
 from io import BytesIO
+import json
 import pandas as pd
+
+from typing import Dict, Any
 
 def upload_dataframe_to_gcs(df: pd.DataFrame, bucket_name: str, destination_blob_name: str) -> None:
     """
@@ -19,7 +22,7 @@ def upload_dataframe_to_gcs(df: pd.DataFrame, bucket_name: str, destination_blob
 
     # Guardar DataFrame a un buffer en memoria como Parquet
     buffer = BytesIO()
-    df.to_parquet(buffer, index=False)
+    df.to_parquet(buffer, index=True)
     buffer.seek(0)
 
     # Subir el contenido a GCS
@@ -72,3 +75,28 @@ def upload_json_to_gcs(bucket_name: str, local_path: str, gcs_path: str) -> None
     
     # Sube el fichero JSON
     blob.upload_from_filename(local_path)
+
+
+def read_json_from_gcs(bucket_name: str, gcs_path: str) -> Dict[str, Any]:
+    """
+    Read a JSON file from a Google Cloud Storage bucket.
+
+    Parameters
+    ----------
+    bucket_name : str
+        Name of the GCS bucket.
+    gcs_path : str
+        Origin path in the bucket (e.g., "datasets/penguins/processed/metadata.json").
+    """
+    # Inicializa el cliente
+    client = storage.Client()
+    bucket = client.bucket(bucket_name)
+    
+    # Nombre del blob dentro del bucket
+    blob = bucket.blob(gcs_path)
+    
+    # Lee y parsea el fichero json
+    content = blob.download_as_text()
+    metadata = json.loads(content)
+
+    return metadata

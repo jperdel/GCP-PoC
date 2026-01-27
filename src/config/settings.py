@@ -2,8 +2,8 @@
 DATASETS = {
     "penguins": {
         "raw": "datasets/penguins/raw/data.parquet",
-        "interim": "datasets/penguins/interim/data.parquet",
-        "procesed": "datasets/penguins/procesed/data.parquet",
+        # "interim": "datasets/penguins/interim/data.parquet",
+        "processed": "datasets/penguins/processed/data.parquet",
         "features": "datasets/penguins/features/data.parquet"
     }
 }
@@ -11,6 +11,9 @@ DATASETS = {
 METADATA = {
     "penguins": {
         "raw": "datasets/penguins/raw/metadata.json",
+        # "interim": "datasets/penguins/interim/metadata.json",
+        "processed": "datasets/penguins/processed/metadata.json",
+        "features": "datasets/penguins/features/metadata.json"
     }
 }
 
@@ -20,6 +23,11 @@ PENGUINS_QUERY = """
 SELECT *
 FROM `bigquery-public-data.ml_datasets.penguins`
 """
+
+# SPLIT AND  VALIDATION SETTINGS
+TEST_SIZE = 0.2
+K_FOLDS = 5
+SK_SEED = 42
 
 # MODEL SETTINGS
 TARGET = "sex"

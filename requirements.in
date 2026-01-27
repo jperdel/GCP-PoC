@@ -5,3 +5,4 @@ pandas
 db-dtypes
 pyarrow
 fastparquet
+scikit-learn
