@@ -29,6 +29,15 @@ TEST_SIZE = 0.2
 K_FOLDS = 5
 SK_SEED = 42
 
+# ENCODING SETTINGS
+OHE_COLS = ['species', 'island']
+STD_COLS = []
+
+TARGET_ENC_DICT = {
+    'MALE': 0,
+    'FEMALE': 1
+}
+
 # MODEL SETTINGS
 TARGET = "sex"
 FEATURES = ['species', 'island', 'culmen_length_mm', 'culmen_depth_mm', 'flipper_length_mm', 'body_mass_g']
