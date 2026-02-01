@@ -44,3 +44,18 @@ def clean_duplicates(df: pd.DataFrame) -> pd.DataFrame:
     # TODO: estrategias de deduplicación avanzadas
 
     return df
+
+def clean_target(df: pd.DataFrame, target: str, target_enc_dict: dict) -> pd.DataFrame:
+    '''
+    Limpia las etiquetas que no pertenezcan a las clases objetivo
+
+    Params:
+        df: pandas.DataFrame con los datos
+        target: columna target
+        target_enc_dict: diccionario con las clases del problema y sus valores de encoding
+
+    Return:
+        pandas.DataFrame con el dataset limpio de etiquetas erróneas
+    '''
+
+    return df[df[target].isin(target_enc_dict.keys())]

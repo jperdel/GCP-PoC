@@ -2,7 +2,7 @@ import pandas as pd
 
 from sklearn.model_selection import train_test_split
 
-def split_data(df: pd.DataFrame, test_size: float, strat_by: str=None) -> tuple[pd.Index]:
+def split_data(df: pd.DataFrame, test_size: float, strat_by: str=None, random_seed: int=None) -> tuple[pd.Index]:
 
     '''
     Función para partir los datos en train y test
@@ -18,6 +18,6 @@ def split_data(df: pd.DataFrame, test_size: float, strat_by: str=None) -> tuple[
             idx_test: pandas.Index con el conjunto de datos de test
     '''
 
-    df_train, df_test = train_test_split(df, test_size=test_size, stratify=strat_by)
+    df_train, df_test = train_test_split(df, test_size=test_size, stratify=strat_by, random_state=random_seed)
 
     return df_train.index, df_test.index

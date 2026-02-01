@@ -6,3 +6,6 @@ db-dtypes
 pyarrow
 fastparquet
 scikit-learn
+optuna
+mlflow==3.9.0
+tqdm

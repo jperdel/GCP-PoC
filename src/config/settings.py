@@ -27,7 +27,7 @@ FROM `bigquery-public-data.ml_datasets.penguins`
 # SPLIT AND  VALIDATION SETTINGS
 TEST_SIZE = 0.2
 K_FOLDS = 5
-SK_SEED = 42
+RANDOM_SPLIT_SEED = 42
 
 # ENCODING SETTINGS
 OHE_COLS = ['species', 'island']
@@ -38,6 +38,12 @@ TARGET_ENC_DICT = {
     'FEMALE': 1
 }
 
-# MODEL SETTINGS
+# DATA SETTINGS
 TARGET = "sex"
 FEATURES = ['species', 'island', 'culmen_length_mm', 'culmen_depth_mm', 'flipper_length_mm', 'body_mass_g']
+
+# CROSS VALIDATION SETTINGS
+N_SPLITS_KFOLDS = 5
+N_TRIALS = 30
+EXPERIMENT_NAME = "rf_cross_validation"
+CV_RANDOM_SEED = 42

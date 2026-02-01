@@ -4,18 +4,52 @@
 #
 #    pip-compile requirements.in
 #
+alembic==1.18.3
+    # via
+    #   mlflow
+    #   optuna
+blinker==1.9.0
+    # via flask
 certifi==2026.1.4
     # via requests
 charset-normalizer==3.4.4
     # via requests
+click==8.3.1
+    # via
+    #   databricks-cli
+    #   flask
+    #   mlflow
+cloudpickle==3.1.2
+    # via mlflow
+colorama==0.4.6
+    # via
+    #   click
+    #   colorlog
+    #   tqdm
+colorlog==6.10.1
+    # via optuna
 cramjam==2.11.0
     # via fastparquet
+databricks-cli==0.18.0
+    # via mlflow
 db-dtypes==1.4.4
     # via -r requirements.in
+docker==7.1.0
+    # via mlflow
+entrypoints==0.4
+    # via mlflow
 fastparquet==2025.12.0
     # via -r requirements.in
+flask==3.1.2
+    # via
+    #   mlflow
+    #   prometheus-flask-exporter
 fsspec==2026.1.0
     # via fastparquet
+gitdb==4.0.12
+    # via gitpython
+gitpython==3.1.46
+    # via mlflow
 google-api-core[grpc]==2.29.0
     # via
     #   google-cloud-bigquery
@@ -51,6 +85,8 @@ googleapis-common-protos==1.72.0
     # via
     #   google-api-core
     #   grpcio-status
+greenlet==3.3.1
+    # via sqlalchemy
 grpcio==1.76.0
     # via
     #   google-api-core
@@ -60,21 +96,54 @@ grpcio-status==1.76.0
     # via google-api-core
 idna==3.11
     # via requests
+importlib-metadata==8.7.1
+    # via mlflow
+itsdangerous==2.2.0
+    # via flask
+jinja2==3.1.6
+    # via flask
+joblib==1.5.3
+    # via scikit-learn
+mako==1.3.10
+    # via alembic
+markupsafe==3.0.3
+    # via
+    #   flask
+    #   jinja2
+    #   mako
+    #   werkzeug
+mlflow==1.26.1
+    # via -r requirements.in
 numpy==2.4.1
     # via
     #   db-dtypes
     #   fastparquet
+    #   mlflow
+    #   optuna
     #   pandas
+    #   scikit-learn
+    #   scipy
+oauthlib==3.3.1
+    # via databricks-cli
+optuna==4.7.0
+    # via -r requirements.in
 packaging==26.0
     # via
     #   db-dtypes
     #   fastparquet
     #   google-cloud-bigquery
+    #   mlflow
+    #   optuna
 pandas==3.0.0
     # via
     #   -r requirements.in
     #   db-dtypes
     #   fastparquet
+    #   mlflow
+prometheus-client==0.24.1
+    # via prometheus-flask-exporter
+prometheus-flask-exporter==0.23.2
+    # via mlflow
 proto-plus==1.27.0
     # via
     #   google-api-core
@@ -85,6 +154,7 @@ protobuf==6.33.4
     #   google-cloud-bigquery-storage
     #   googleapis-common-protos
     #   grpcio-status
+    #   mlflow
     #   proto-plus
 pyarrow==23.0.0
     # via
@@ -96,22 +166,75 @@ pyasn1==0.6.2
     #   rsa
 pyasn1-modules==0.4.2
     # via google-auth
+pyjwt==2.10.1
+    # via databricks-cli
 python-dateutil==2.9.0.post0
     # via
     #   google-cloud-bigquery
     #   pandas
+pytz==2025.2
+    # via mlflow
+pywin32==311
+    # via docker
+pyyaml==6.0.3
+    # via
+    #   mlflow
+    #   optuna
+querystring-parser==1.2.4
+    # via mlflow
 requests==2.32.5
     # via
+    #   databricks-cli
+    #   docker
     #   google-api-core
     #   google-cloud-bigquery
     #   google-cloud-storage
+    #   mlflow
 rsa==4.9.1
     # via google-auth
+scikit-learn==1.8.0
+    # via -r requirements.in
+scipy==1.17.0
+    # via
+    #   mlflow
+    #   scikit-learn
 six==1.17.0
-    # via python-dateutil
+    # via
+    #   databricks-cli
+    #   python-dateutil
+    #   querystring-parser
+smmap==5.0.2
+    # via gitdb
+sqlalchemy==2.0.46
+    # via
+    #   alembic
+    #   mlflow
+    #   optuna
+sqlparse==0.5.5
+    # via mlflow
+tabulate==0.9.0
+    # via databricks-cli
+threadpoolctl==3.6.0
+    # via scikit-learn
+tqdm==4.67.1
+    # via
+    #   -r requirements.in
+    #   optuna
 typing-extensions==4.15.0
-    # via grpcio
+    # via
+    #   alembic
+    #   grpcio
+    #   sqlalchemy
 tzdata==2025.3
     # via pandas
 urllib3==2.6.3
-    # via requests
+    # via
+    #   databricks-cli
+    #   docker
+    #   requests
+waitress==3.0.2
+    # via mlflow
+werkzeug==3.1.5
+    # via flask
+zipp==3.23.0
+    # via importlib-metadata
